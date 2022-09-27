@@ -11,6 +11,8 @@ class App extends React.Component {
     this.state = {
       searchQuery: "",
       location: {},
+      lat: "",
+      lon: "",
       error: false,
       errorMessage: "",
       searchResults: []
@@ -29,6 +31,8 @@ class App extends React.Component {
       const res = await axios.get(API);
       console.log(res.data[0]);
       this.setState({ location: res.data[0] })
+      this.setState({ lat: res.data[0].lat })
+      this.setState({ lon: res.data[0].lon })
     } catch (error) {
       this.setState({ error: true, errorMessage: error.message })
     }
@@ -56,8 +60,8 @@ class App extends React.Component {
           </Row>
         </Form>
 
-          <Card style={{ width: '30rem' }}>
-            <Card.Img variant="top" src="https://via.placeholder.com/200x200" />
+          <Card style={{ width: '40rem' }}>
+            <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=12`} />
             <Card.Body>
               <Card.Title>
                 {this.state.location.display_name}
@@ -80,7 +84,7 @@ class App extends React.Component {
               }
                 
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+             
             </Card.Body>
           </Card>
 
