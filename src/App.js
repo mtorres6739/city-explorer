@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Container, Card, Button, Form, Col, Row } from "react-bootstrap";
+import { Container, Card, Button, Form, Col, Row, Alert } from "react-bootstrap";
 
 
 class App extends React.Component {
@@ -11,11 +11,10 @@ class App extends React.Component {
     this.state = {
       searchQuery: "",
       location: {},
-      lat: "",
-      lon: "",
       error: false,
       errorMessage: "",
-      searchResults: []
+      searchResults: [],
+      cityMap: ""
     };
   }
 
@@ -30,9 +29,13 @@ class App extends React.Component {
       const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.searchQuery}&format=json`;
       const res = await axios.get(API);
       console.log(res.data[0]);
-      this.setState({ location: res.data[0] })
-      this.setState({ lat: res.data[0].lat })
-      this.setState({ lon: res.data[0].lon })
+      this.setState({ 
+        location: res.data[0],
+        cityMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${res.data[0].lat},${res.data[0].lon}&zoom=12`
+});
+      
+
+  
     } catch (error) {
       this.setState({ error: true, errorMessage: error.message })
     }
@@ -61,7 +64,7 @@ class App extends React.Component {
         </Form>
 
           <Card style={{ width: '40rem' }}>
-            <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=12`} />
+            <Card.Img variant="top" src={this.state.cityMap} />
             <Card.Body>
               <Card.Title>
                 {this.state.location.display_name}
@@ -77,12 +80,8 @@ class App extends React.Component {
                  
                 </>
               }
-
-              {
-                this.state.error &&
-                <h3>{this.state.errorMessage}</h3>
-              }
-                
+              {this.state.error && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+              
               </Card.Text>
              
             </Card.Body>
