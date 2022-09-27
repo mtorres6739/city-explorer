@@ -54,3 +54,8 @@ Start time: 5pm
 Finish time: 6pm
 
 Actual time needed to complete: 1 hours
+
+## Image of Web Request-Response Cycle
+
+![Web Request-Response Cycle](./src/assets/web-request-response-cycle.png)
+
