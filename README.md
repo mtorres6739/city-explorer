@@ -20,12 +20,37 @@
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Name of feature: ________________________________
+---
 
-Estimate of time needed to complete: _____
+Name of feature: Locations
 
-Start time: _____
+Estimate of time needed to complete: 2 hours
 
-Finish time: _____
+Start time: 1pm
 
-Actual time needed to complete: _____
+Finish time: 3pm
+
+Actual time needed to complete: 2 hours
+
+---
+Name of feature: Map
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 3pm
+
+Finish time: 5pm
+
+Actual time needed to complete: 2 hours
+
+---
+
+Name of feature: Errors
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 5pm
+
+Finish time: 6pm
+
+Actual time needed to complete: 1 hours

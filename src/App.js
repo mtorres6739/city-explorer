@@ -13,7 +13,6 @@ class App extends React.Component {
       location: {},
       error: false,
       errorMessage: "",
-      searchResults: [],
       cityMap: ""
     };
   }
@@ -31,7 +30,8 @@ class App extends React.Component {
       console.log(res.data[0]);
       this.setState({ 
         location: res.data[0],
-        cityMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${res.data[0].lat},${res.data[0].lon}&zoom=12`
+        cityMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${res.data[0].lat},${res.data[0].lon}&zoom=12`,
+        error: false,
 });
       
 
