@@ -13,13 +13,17 @@ class App extends React.Component {
       location: {},
       error: false,
       errorMessage: "",
-      cityMap: ""
+      cityMap: "",
+      lat: "",
+      lon: "",
+      weather: []
+
     };
   }
 
   handleInput = (event) => {
     event.preventDefault();
-    this.setState({ searchQuery: event.target.value});
+    this.setState({ searchQuery: event.target.value });
     console.log(this.state.searchQuery);
   };
 
@@ -27,41 +31,46 @@ class App extends React.Component {
     try {
       const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.searchQuery}&format=json`;
       const res = await axios.get(API);
+
+      const weather = await axios.get(`http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lat=${this.state.lat}&lon=${this.state.lon}`);
       console.log(res.data[0]);
-      this.setState({ 
+      this.setState({
         location: res.data[0],
         cityMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${res.data[0].lat},${res.data[0].lon}&zoom=12`,
         error: false,
-});
-      
+        weather: weather.data.data
 
-  
+      });
+
+
+
     } catch (error) {
       this.setState({ error: true, errorMessage: error.message })
     }
   }
 
   render() {
+    console.log(this.state);
     return (
-   
-     <div className="App">
+
+      <div className="App">
         <Container>
-        <h1>City Explorer</h1>
-        <Form>
-          <Row>
-            <Col xs={6}>
-          <Form.Group className="mb-3" controlId="search">
-              <Form.Control type="text" onChange={this.handleInput}  placeholder="search for a city" />
-          </Form.Group>
-          </Col>
-          
-          <Col xs={6}>
-            <Button variant="primary" onClick={this.handleSearch}>
-            Explore!
-          </Button>
-          </Col>
-          </Row>
-        </Form>
+          <h1>City Explorer</h1>
+          <Form>
+            <Row>
+              <Col xs={6}>
+                <Form.Group className="mb-3" controlId="search">
+                  <Form.Control type="text" onChange={this.handleInput} placeholder="search for a city" />
+                </Form.Group>
+              </Col>
+
+              <Col xs={6}>
+                <Button variant="primary" onClick={this.handleSearch}>
+                  Explore!
+                </Button>
+              </Col>
+            </Row>
+          </Form>
 
           <Card style={{ width: '40rem' }}>
             <Card.Img variant="top" src={this.state.cityMap} />
@@ -70,26 +79,48 @@ class App extends React.Component {
                 {this.state.location.display_name}
               </Card.Title>
               <Card.Text>
-              {
-                this.state.location.display_name &&
-                <>
-                  
-                  Latitude: {this.state.location.lat}
-                  <br />
-                  Longitude: {this.state.location.lon}
-                 
-                </>
-              }
-              {this.state.error && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-              
+                {
+                  this.state.location.display_name &&
+                  <>
+
+                    Latitude: {this.state.location.lat}
+                    <br />
+                    Longitude: {this.state.location.lon}
+
+                  </>
+                }
+                {this.state.error && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+
+
+                
               </Card.Text>
-             
+
             </Card.Body>
           </Card>
+       
+          {// render the weather data here
+          this.state.weather.map((item, index) => {
+            return (
+              <Card style={{ width: '40rem' }}>
+                <Card.Body>
+                  <Card.Title>
+                    {item.datetime}
+                  </Card.Title>
+                  <Card.Text>
+                    {item.weather.description}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )
 
-       </Container>
+          })
+          }
+          
+         
+        </Container>
+               
       </div>
-   
+
     );
   }
 }
