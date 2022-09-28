@@ -31,6 +31,17 @@ This application uses the following technologies:
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+---
+
+Name of feature: Setup server
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 2pm
+
+Finish time: 6pm
+
+Actual time needed to complete: 4 hours
 
 ---
 
