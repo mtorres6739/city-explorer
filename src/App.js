@@ -33,12 +33,12 @@ class App extends React.Component {
       const res = await axios.get(API);
 
       const weather = await axios.get(`http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lat=${this.state.lat}&lon=${this.state.lon}`);
-      console.log(res.data[0]);
+      console.log(weather);
       this.setState({
         location: res.data[0],
         cityMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&center=${res.data[0].lat},${res.data[0].lon}&zoom=12`,
         error: false,
-        weather: weather.data.data
+        weather: weather.data
 
       });
 
@@ -101,13 +101,13 @@ class App extends React.Component {
           {// render the weather data here
           this.state.weather.map((item, index) => {
             return (
-              <Card style={{ width: '40rem' }}>
+              <Card key={index} style={{ width: '40rem' }}>
                 <Card.Body>
                   <Card.Title>
-                    {item.datetime}
+                    {item.date}
                   </Card.Title>
                   <Card.Text>
-                    {item.weather.description}
+                    {item.description}
                   </Card.Text>
                 </Card.Body>
               </Card>
