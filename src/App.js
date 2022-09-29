@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Container, Card, Button, Form, Col, Row, Alert } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import SearchForm from "./components/SearchForm";
 import Weather from "./components/Weather";
 import CityData from "./components/CityData";
@@ -37,10 +37,11 @@ class App extends React.Component {
     try {
       const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.searchQuery}&format=json`;
       const res = await axios.get(API);
+      const URL = process.env.REACT_APP_URL_KEY;
 
-      const weatherBit = await axios.get(`http://localhost:3001/weatherbit?searchQuery=${this.state.searchQuery}&lat=${res.data[0].lat}&lon=${res.data[0].lon}`);
+      const weatherBit = await axios.get(`${URL}/weatherbit?searchQuery=${this.state.searchQuery}&lat=${res.data[0].lat}&lon=${res.data[0].lon}`);
 
-      const movies = await axios.get(`http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`);
+      const movies = await axios.get(`${URL}/movies?searchQuery=${this.state.searchQuery}`);
 
       this.setState({
         location: res.data[0],
