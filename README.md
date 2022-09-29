@@ -23,6 +23,8 @@ This application uses the following technologies:
 
 ## Change Log
 
+09-27-2022 10:15pm - Application server is now deployed to Heroku.
+09-27-2022 10:00pm - Application now has a fully-functional express server, with a GET route for the location resource.
 09-26-2022 9:00pm  - Application now has a fully-functional node server, with a GET route for the location resource.
 
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -31,7 +33,48 @@ This application uses the following technologies:
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+## Lab 8
+
+Name of feature: Weather Live
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 1pm
+
+Finish time: 6pm
+
+Actual time needed to complete: 5 hours
+
 ---
+
+Name of feature: Movies
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 7pm
+
+Finish time: 9pm
+
+Actual time needed to complete: 2 hours
+
+---
+
+Name of feature: Deployment
+
+Estimate of time needed to complete: 1 hours
+
+Start time: 9pm
+
+Finish time: 10pm
+
+Actual time needed to complete: 1 hour
+
+### Image of Web Request-Response Cycle
+
+![Web Request-Response Cycle](./src/assets/web-request-response-cycle2.png)
+
+## Lab 7
 
 Name of feature: Setup server
 
@@ -43,7 +86,7 @@ Finish time: 6pm
 
 Actual time needed to complete: 4 hours
 
----
+## Lab 6
 
 Name of feature: Locations
 
@@ -78,7 +121,7 @@ Finish time: 6pm
 
 Actual time needed to complete: 1 hours
 
-## Image of Web Request-Response Cycle
+### Image of Web Request-Response Cycle
 
 ![Web Request-Response Cycle](./src/assets/web-request-response-cycle.png)
 
