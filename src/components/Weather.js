@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Form, Col, Row, Alert, Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Weather extends React.Component {

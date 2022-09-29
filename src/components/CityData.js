@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card, Button, Form, Col, Row, Alert } from "react-bootstrap";
+import { Container, Card, Alert } from "react-bootstrap";
 import LatLon from "./LatLon";
 
 class CityData extends React.Component {

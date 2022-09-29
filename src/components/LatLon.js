@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card, Button, Form, Col, Row, Alert } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class LatLon extends React.Component {
   render() {

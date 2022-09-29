@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Container, Card, Button, Form, Col, Row, Alert } from "react-bootstrap";
+import { Container, Button, Form, Col, Row } from "react-bootstrap";
 
 class SearchForm extends React.Component {
 
