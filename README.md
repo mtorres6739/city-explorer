@@ -23,6 +23,7 @@ This application uses the following technologies:
 
 ## Change Log
 
+09-29-2022 6:00pm - Application has component and module structure.
 09-27-2022 10:15pm - Application server is now deployed to Heroku.
 09-27-2022 10:00pm - Application now has a fully-functional express server, with a GET route for the location resource.
 09-26-2022 9:00pm  - Application now has a fully-functional node server, with a GET route for the location resource.
@@ -33,6 +34,30 @@ This application uses the following technologies:
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+## Lab 9
+
+Name of feature: Componentize Front End
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 3pm
+
+Finish time: 6pm
+
+Actual time needed to complete: 3 hours
+
+---
+
+Name of feature: Modularize Backend
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 1pm
+
+Finish time: 3pm
+
+Actual time needed to complete: 2 hours
 
 ## Lab 8
 
