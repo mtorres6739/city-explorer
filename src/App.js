@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import SearchForm from "./components/SearchForm";
 import Weather from "./components/Weather";
 import CityData from "./components/CityData";
-import Movies from "./components/Movies";
+import MoviesAll from "./components/MoviesAll";
 
 
 class App extends React.Component {
@@ -89,9 +89,11 @@ class App extends React.Component {
             weatherBit={this.state.weatherBit}
           />
 
-          <Movies
+          <MoviesAll
             movies={this.state.movies}
           />
+
+     
         </Container>
 
       </>
